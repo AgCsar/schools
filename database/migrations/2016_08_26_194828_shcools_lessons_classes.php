@@ -14,51 +14,51 @@ class ShcoolsLessonsClasses extends Migration
     {   
         Schema::create('schools', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('sch_name');
             $table->timestamps();
         });
 
         Schema::create('grades', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('gra_name');
             $table->timestamps();
         });
 
         Schema::create('shifts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('shi_name');
             $table->timestamps();
         });
 
         Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('sub_name');
             $table->timestamps();
         });
 
         Schema::create('school_classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('identifier');
-            $table->unsignedInteger('grade_id');
-            $table->unsignedInteger('shift_id');
+            $table->string('scc_identifier');
+            $table->unsignedInteger('scc_grade_id');
+            $table->unsignedInteger('scc_shift_id');
             $table->timestamps();
 
-            $table->foreign('grade_id')->references('id')->on('grades');
-            $table->foreign('shift_id')->references('id')->on('shifts');
+            $table->foreign('scc_grade_id')->references('id')->on('grades');
+            $table->foreign('scc_shift_id')->references('id')->on('shifts');
 
         });
 
 
         Schema::create('lessons', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('school_class_id');
-            $table->unsignedInteger('subject_id');
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->unsignedInteger('les_school_class_id');
+            $table->unsignedInteger('les_subject_id');
+            $table->dateTime('les_start');
+            $table->dateTime('les_end');
             $table->timestamps();
 
-            $table->foreign('school_class_id')->references('id')->on('school_classes');
-            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->foreign('les_school_class_id')->references('id')->on('school_classes');
+            $table->foreign('les_subject_id')->references('id')->on('subjects');
         });
     }
 

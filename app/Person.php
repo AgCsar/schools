@@ -12,9 +12,9 @@ class Person extends Model
      * @var array
      */
     protected $fillable = [
-    	'name', 
-    	'birthday', 
-    	'gender', 
-    	'place_of_birth', 
-    	'more'];
+    	'peo_name', 
+    	'peo_birthday', 
+    	'peo_gender', 
+    	'peo_place_of_birth', 
+    	'peo_more'];
 }

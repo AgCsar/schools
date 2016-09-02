@@ -11,14 +11,14 @@ class RequestAccess extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
         Schema::create('request_accesses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('auth0_user_id');
+            $table->bigIncrements('id');
+            $table->string('rea_user_id');
             // 0 - pending
             // 1 - denied
             // 2 - aprroved
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('rea_status')->default(0);
             $table->timestamps();
         });
     }

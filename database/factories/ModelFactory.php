@@ -15,18 +15,18 @@ $faker = Faker\Factory::create('pt_BR');
 
 $factory->define(App\School::class, function () use ($factory, $faker) {
     return [
-        'name' => $faker->company.' school',
+        'sch_name' => $faker->company.' school',
     ];
 });
 
 
 $factory->define(App\SchoolClass::class, function () use ($factory, $faker) {
     return [
-        'identifier' => $faker->randomLetter(),
-        'shift_id' => function(){
+        'scc_identifier' => $faker->randomLetter(),
+        'scc_shift_id' => function(){
         	return factory(App\Shift::class)->create()->id;
         },
-        'grade_id' => function(){
+        'scc_grade_id' => function(){
         	return factory(App\Grade::class)->create()->id;
         },
     ];
@@ -34,13 +34,13 @@ $factory->define(App\SchoolClass::class, function () use ($factory, $faker) {
 
 $factory->define(App\Shift::class, function () use ($factory, $faker) {
     return [
-        'name' => $faker->randomElement(['matutino','noturno','vespertino']),
+        'shi_name' => $faker->randomElement(['matutino','noturno','vespertino']),
     ];
 });
 
 $factory->define(App\Grade::class, function () use ($factory, $faker) {
     return [
-        'name' => $faker->randomElement([
+        'gra_name' => $faker->randomElement([
         		'Jardim I',
         		'Jardim II',
         		'1º Ano - fundamental I',
@@ -65,21 +65,21 @@ $factory->define(App\Person::class, function () use ($factory, $faker) {
     $gender = $faker->randomElement(['female' ,'male']);
 
     return [
-    	'name' => $faker->name($gender), 
-    	'birthday' => $faker->dateTimeThisCentury->format('Y-m-d'), 
-    	'gender' => $gender, 
-    	'place_of_birth' => $faker->city, 
-    	'more' => $faker->text(),
+    	'peo_name' => $faker->name($gender), 
+    	'peo_birthday' => $faker->dateTimeThisCentury->format('Y-m-d'), 
+    	'peo_gender' => $gender, 
+    	'peo_place_of_birth' => $faker->city, 
+    	'peo_more' => $faker->text(),
     	];
 });
 
 $factory->define(App\Student::class, function ($faker) use ($factory) {
     
     return [
-	    	'person_id' => function(){
+	    	'stu_person_id' => function(){
 	    		return 	factory(App\Person::class)->create()->id;
 	    	},
-	    	'school_class_id' => function(){
+	    	'stu_school_class_id' => function(){
 	    		return factory(App\SchoolClass::class)->create()->id;
 	    	}
     	];

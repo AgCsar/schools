@@ -52,13 +52,13 @@ class AuthController extends Controller
     {   
         $auth0_user_id = Auth0::jwtuser()->sub;
         $requestAccess = RequestAccess::
-            where('auth0_user_id', $auth0_user_id)
+            where('rea_user_id', $auth0_user_id)
             ->first();
 
         if (!$requestAccess) {
             $requestAccess = RequestAccess::create([
-                    'status' => 0, // Pendente
-                    'auth0_user_id' => $auth0_user_id
+                    'rea_status' => 0, // Pendente
+                    'rea_user_id' => $auth0_user_id
                 ]);
         }
 

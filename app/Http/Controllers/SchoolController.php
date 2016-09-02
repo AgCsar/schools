@@ -21,7 +21,7 @@ class SchoolController extends Controller
      public function validation(Request $request)
      {
          $this->validate($request, [
-            'name' => 'required|string',
+            'sch_name' => 'required|string',
         ]);
      }
 

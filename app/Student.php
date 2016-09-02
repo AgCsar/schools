@@ -11,7 +11,7 @@ class Student extends Model
      *
      * @var array
      */
-    protected $fillable = ['person_id', 'class_id'];
+    protected $fillable = ['stu_person_id', 'stu_class_id'];
 
     /**
      * @Relation

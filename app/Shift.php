@@ -11,5 +11,5 @@ class Shift extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['shi_name'];
 }

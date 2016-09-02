@@ -11,5 +11,5 @@ class Grade extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['gra_name'];
 }

@@ -55,11 +55,13 @@ class TestCase extends TestCaseLara
             Config::get('laravel-auth0.client_id'), 
             Config::get('laravel-auth0.client_secret'));
         
-        $tokens = $auth0Api->authorize_with_ro(
-            Config::get('laravel-auth0.email_user_tester'),
-            Config::get('laravel-auth0.pass_user_tester'),
-            'openid',
-            'Username-Password-Authentication');
+        // $tokens = $auth0Api->authorize_with_ro(
+        //     Config::get('laravel-auth0.email_user_tester'),
+        //     Config::get('laravel-auth0.pass_user_tester'),
+        //     'openid',
+        //     'Username-Password-Authentication');
+
+        $tokens['id_token'] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2xvZ29zLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1N2MwODQwZGVhZTA5NTQ3MWFiYTQwOTMiLCJhdWQiOiJ3Mjd6MXY5eFJQQnVycWFYNmxEcXNNSTJ1TldocXgwdiIsImV4cCI6MTQ3NTQzMDg0MCwiaWF0IjoxNDcyODM4ODQwfQ.xf850xY3eDNmofQm2fy9WOA9eyr4vL5EXRqWotD0xG8";
         
         return $tokens;
     }
